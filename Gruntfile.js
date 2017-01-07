@@ -35,11 +35,11 @@ module.exports = function(grunt) {
 						// Global variables
 						'version':'0.0.3',
 						// Directories
-						'libsDir': 'Assets/Scripts/Libraries',
-						'cssDir':'Assets/Styles/Production',
-						'jsRootDir': 'Assets/Scripts',
-						'htmlDir': 'Assets/Html',
-						'imgDir': 'Assets/Images'
+						'libsDir': 'Project/Assets/Scripts/Libraries',
+						'cssDir':'Project/Assets/Styles/Production',
+						'jsRootDir': 'Project/Assets/Scripts',
+						'htmlDir': 'Project/Assets/Html',
+						'imgDir': 'Project/Assets/Images'
 					},
 				},
 			    files: {

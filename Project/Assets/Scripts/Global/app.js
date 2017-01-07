@@ -23,25 +23,25 @@ $locationProvider.html5Mode(false).hashPrefix('!');
 $stateProvider
 .state('login', {
 	url: '/login',
-	templateUrl: 'Assets/Html/Pages/login.html',
+	templateUrl: 'Project/Assets/Html/Pages/login.html',
 	controller: 'loginCtrl',
 	title: 'Sign in'
 })
 .state('app', {
-	templateUrl: 'Assets/Html/Pages/layout.html',
+	templateUrl: 'Project/Assets/Html/Pages/layout.html',
 	controller: 'layoutCtrl',
 	breadcrumb: false
 })
 .state('app.dashboard', {
 	url: '/',
-	templateUrl: 'Assets/Html/Pages/dashboard.html',
+	templateUrl: 'Project/Assets/Html/Pages/dashboard.html',
 	controller: 'dashboardCtrl',
 	title: 'Dashboard',
 	breadcrumb: 'Dashboard'
 })
 .state('app.404', {
 	url: '/404',
-	templateUrl: 'Assets/Html/Pages/404.html',
+	templateUrl: 'Project/Assets/Html/Pages/404.html',
 	title: 'Page not found',
 	breadcrumb: 'Page does not exist'
 });
