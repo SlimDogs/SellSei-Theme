@@ -1,0 +1,354 @@
+﻿$primary-color: #3897DA;
+
+$vendors: 'webkit', 'moz', 'ms'; // 'webkit', 'moz', 'ms', 'o', 'khtml';
+@mixin vendorize($property, $value, $noplain: false, $vendors: $vendors, $prefix:'') {
+	@each $vendor in $vendors {
+		#{$prefix}-#{$vendor}-#{$property}: $value;
+	}
+	@if $noplain != true {
+		#{$property}: $value;
+	}
+}
+
+// Temp colors
+$orange-color: #FF7948;
+$darkGrey-color: #444;
+$greenish-color: #BAE717;
+
+
+/* Styles */
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #444;
+
+	font-family: 'OA-Icons';
+	-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	color: #444;
+}
+
+
+
+@-webkit-keyframes swing {
+    20% {
+    	@include vendorize(transform, rotate3d(0,0,1,15deg));
+    }
+    40% {
+    	@include vendorize(transform, rotate3d(0,0,1,-10deg));
+    }
+    60% {
+    	@include vendorize(transform, rotate3d(0,0,1,5deg));
+    }
+    80% {
+    	@include vendorize(transform, rotate3d(0,0,1,-5deg));
+    }
+    100% {
+    	@include vendorize(transform, rotate3d(0,0,1,0deg));
+    }
+}
+
+@keyframes swing {
+    20% {
+    	@include vendorize(transform, rotate3d(0,0,1,15deg));
+    }
+    40% {
+    	@include vendorize(transform, rotate3d(0,0,1,-10deg));
+    }
+    60% {
+    	@include vendorize(transform, rotate3d(0,0,1,5deg));
+    }
+    80% {
+    	@include vendorize(transform, rotate3d(0,0,1,-5deg));
+    }
+    100% {
+    	@include vendorize(transform, rotate3d(0,0,1,0deg));
+    }
+}
+
+.swing {
+    @include vendorize(transform-origin, top center);
+    @include vendorize(animation-name, swing);
+}
+
+
+@font-face {
+	font-family: 'OA-Icons';
+	src: url('../../icons/oa-icons.eot?q3f52g65');
+	src: url('../../icons/oa-icons.svg?q3f52g65#OA-Icons') format('svg'),
+		url('../../icons/oa-icons.woff?q3f52g65') format('woff'), 
+		url('../../icons/oa-icons.ttf?q3f52g65') format('truetype'), 
+		url('../../icons/oa-icons.eot?#iefixq3f52g65') format('embedded-opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+i {
+	font-style: normal;
+	font-family: 'OA-Icons';
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.ic-caret-down:before {
+	content: "\e651";
+}
+
+.ic-caret-down-outline:before {
+	content: "\e652";
+}
+
+.ic-check:before {
+	content: "\f122";
+}
+
+.form-container {
+	margin: 20px;
+	padding: 10px;
+	background: #fff;
+	border-radius: 3px;
+	border: 1px solid #ddd;
+	min-height: 350px;
+
+	position: relative;
+}
+
+/* Treeview */
+.oa-tree-view {
+	overflow: hidden;
+	position: relative;
+	opacity: 1;
+	visibility: visible;
+	max-height: 1000px;
+	@include vendorize(transition, all .35s ease-in-out);
+
+	.hide {
+		visibility: hidden;
+		opacity: 0;
+		height: 0px;
+	}
+
+	> .item {
+		display: table;
+		width: 100%;
+
+		> div {
+			display: table-row;
+
+			&:hover {
+				.title > span {
+					font-weight: bold;
+				}
+			}
+
+			> .collapsable {
+				display: table-cell;
+				cursor: pointer;
+				@include vendorize(user-select, none);
+
+				> span {
+					display: inline-block;
+					width: 20px;
+					height: 20px;
+					line-height: 20px;
+					text-align: center;
+					font-size: 14px;
+
+					background: #fff;
+					@include vendorize(border-radius, 360px);
+					@include vendorize(transition, all .35s ease-in-out);
+				}
+			}
+
+			> .checkable {
+				display: table-cell;
+				cursor: pointer;
+				@include vendorize(user-select, none);
+
+				&:hover {
+					> span {
+						color: darken($primary-color, 50%);
+					    @include vendorize(animation-name, swing);
+					}
+				}
+
+				> span {
+					display: inline-block;
+					width: 18px;
+					height: 18px;
+					border: 1px solid $primary-color;
+					color: #fff;
+					border-radius: 360px;
+					line-height: 20px;
+					text-align: center;
+
+					font-size: 10px;
+
+					@include vendorize(animation-duration, .7s);
+				}
+
+				&.checked {
+					span {
+						background-color: $primary-color;
+					}
+					&:hover {
+						> span {
+							@include vendorize(animation-name, swing);
+							color: #fff;
+						}
+					}
+				}
+			}
+
+			> .title {
+				display: table-cell;
+				width: 100%;
+				font-family:  "Segoe UI", "Segoe", Tahoma, Helvetica, Arial, sans-serif;
+				font-size: 12px;
+
+				> span {
+					display: block;
+					height: 20px;
+					margin-left: 5px;
+
+					@include vendorize(transition, all .15s ease-in-out);
+				}
+			}
+		}
+	}
+
+
+	> .sub-content {
+		display: table;
+		width: 100%;
+
+		> .spacer {
+			display: table-cell;
+			border-right: 1px $primary-color solid;
+
+			&:last-child {
+				border: none;
+			}
+
+			> div {
+				padding-left: 29px;
+				height: 20px;
+			}
+		}
+
+		> .sub-trees {
+			display: table-cell;
+			width: 100%;
+
+			> .oa-tree-view {
+				margin-left: -11px;
+			}
+		}
+	}
+
+	&.collapsed {
+
+		> .item > div > .collapsable > span {
+			@include vendorize(transform, rotate(-90deg));
+		} 
+
+		> .sub-content {
+			> .sub-trees {
+				.oa-tree-view {
+					height: 0px;
+					opacity: 0;
+					visibility: hidden;
+				}
+			}
+		}
+	}
+
+	// Colors
+	&.orange {
+		> .item {
+			.checkable {
+				> span {
+					border-color: $orange-color;
+				}
+
+				&:hover {
+					> span {
+						color: $orange-color;
+					}
+				}
+
+				&.checked {
+					> span {
+						background-color: $orange-color;
+					}
+				}
+			}
+		}
+
+		> .sub-content {
+			> .spacer {
+				border-color: $orange-color;
+			}
+		}
+	}
+
+	&.grey {
+		> .item {
+			.checkable {
+				> span {
+					border-color: $darkGrey-color;
+				}
+
+				&:hover {
+					> span {
+						color: $darkGrey-color;
+					}
+				}
+
+				&.checked {
+					> span {
+						background-color: $darkGrey-color;
+					}
+				}
+			}
+		}
+
+		> .sub-content {
+			> .spacer {
+				border-color: $darkGrey-color;
+			}
+		}
+	}
+
+	&.greenish {
+		> .item {
+			.checkable {
+				> span {
+					border-color: $greenish-color;
+				}
+
+				&:hover {
+					> span {
+						color: $greenish-color;
+					}
+				}
+
+				&.checked {
+					> span {
+						background-color: $greenish-color;
+					}
+				}
+			}
+		}
+
+		> .sub-content {
+			> .spacer {
+				border-color: $greenish-color;
+			}
+		}
+	}
+}
+

@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+		<meta charset="utf-8"/>
+		<title>Selsei</title>
+
+		<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background: #444;
+
+			font-family: 'OA-Icons';
+			-webkit-font-smoothing: antialiased;
+  			-moz-osx-font-smoothing: grayscale;
+			color: #444;
+		}
+
+
+		@-webkit-keyframes swing {
+		    20% {
+		        -webkit-transform: rotate3d(0,0,1,15deg);
+		        transform: rotate3d(0,0,1,15deg);
+		    }
+
+		    40% {
+		        -webkit-transform: rotate3d(0,0,1,-10deg);
+		        transform: rotate3d(0,0,1,-10deg);
+		    }
+
+		    60% {
+		        -webkit-transform: rotate3d(0,0,1,5deg);
+		        transform: rotate3d(0,0,1,5deg);
+		    }
+
+		    80% {
+		        -webkit-transform: rotate3d(0,0,1,-5deg);
+		        transform: rotate3d(0,0,1,-5deg);
+		    }
+
+		    100% {
+		        -webkit-transform: rotate3d(0,0,1,0deg);
+		        transform: rotate3d(0,0,1,0deg);
+		    }
+		}
+
+		@keyframes swing {
+		    20% {
+		        -webkit-transform: rotate3d(0,0,1,15deg);
+		        -ms-transform: rotate3d(0,0,1,15deg);
+		        transform: rotate3d(0,0,1,15deg);
+		    }
+
+		    40% {
+		        -webkit-transform: rotate3d(0,0,1,-10deg);
+		        -ms-transform: rotate3d(0,0,1,-10deg);
+		        transform: rotate3d(0,0,1,-10deg);
+		    }
+
+		    60% {
+		        -webkit-transform: rotate3d(0,0,1,5deg);
+		        -ms-transform: rotate3d(0,0,1,5deg);
+		        transform: rotate3d(0,0,1,5deg);
+		    }
+
+		    80% {
+		        -webkit-transform: rotate3d(0,0,1,-5deg);
+		        -ms-transform: rotate3d(0,0,1,-5deg);
+		        transform: rotate3d(0,0,1,-5deg);
+		    }
+
+		    100% {
+		        -webkit-transform: rotate3d(0,0,1,0deg);
+		        -ms-transform: rotate3d(0,0,1,0deg);
+		        transform: rotate3d(0,0,1,0deg);
+		    }
+		}
+
+		.swing {
+		    -webkit-transform-origin: top center;
+		    -ms-transform-origin: top center;
+		    transform-origin: top center;
+		    -webkit-animation-name: swing;
+		    animation-name: swing;
+		}
+
+		@font-face {
+		  font-family: 'OA-Icons';
+		  src: url('icons/oa-icons.eot?q3f52g65');
+		  src: url('icons/oa-icons.svg?q3f52g65#OA-Icons') format('svg'),
+			   url('icons/oa-icons.woff?q3f52g65') format('woff'), 
+			   url('icons/oa-icons.ttf?q3f52g65') format('truetype'), 
+			   url('icons/oa-icons.eot?#iefixq3f52g65') format('embedded-opentype');
+		  font-weight: normal;
+		  font-style: normal;
+		}
+
+		.form-container {
+			margin: 20px;
+			padding: 10px;
+			background: #fff;
+			border-radius: 3px;
+			border: 1px solid #ddd;
+			min-height: 350px;
+		}
+
+		.toolbar {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+			height: 30px;
+		}
+
+		.toolbar > li {
+			display: inline-block;
+			height: 28px;
+			width: 28px;
+			background: #f1f1f1;
+			border-radius: 5px;
+			margin: 1px 1px;
+
+			line-height: 28px;
+			text-align: center;
+			cursor: pointer;
+		}
+
+		.toolbar > li:hover > i {
+		    -webkit-animation-name: swing;
+		    -moz-animation-name: swing;
+		    -o-animation-name: swing;
+		    animation-name: swing;
+		}
+
+		i {
+			font-style: normal;
+			font-size: 16px;
+
+		    -webkit-animation-duration: .7s;
+		    -moz-animation-duration: .7s;
+		    -o-animation-duration: .7s;
+		    animation-duration: .7s;
+		}
+
+		.ic-unlink:before {
+			content: "\e64f";
+		}
+		.ic-history:before {
+			content: "\e64d";
+		}
+		.ic-Matrix-view:before {
+			content: "\e600";
+		}
+
+		</style>
+
+	</head>
+	<body>
+
+		<div class="form-container">
+			
+			<ul class="toolbar">
+				<li>
+					<i class="ic-Matrix-view"></i>
+				</li>
+				<li>
+					<i class="ic-history"></i>
+				</li>
+				<li>
+					<i class="ic-unlink"></i>
+				</li>
+			</ul>
+
+		</div>
+
+	</body>
+</html>
