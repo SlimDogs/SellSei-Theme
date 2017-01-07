@@ -1,0 +1,159 @@
+﻿#notifications {
+	position: fixed;
+	width: 350px;
+	top: 0;
+	left: 50%;
+	margin-left: -175px;
+	z-index: 99999;
+
+	> div {
+		overflow: hidden;
+		margin-top: 10px;
+		max-height: 5em;
+
+		@include vendorize(box-shadow, 0px 3px 5px rgba(#111, .4));
+		@include transition(.35s);
+
+		/* ending enter and move styling (this is what the element will animate from */
+		&.ng-enter {
+			opacity: 0;
+			&:not(.ng-enter-active){
+				max-height: 0;
+			}
+		}
+
+		/* ending enter and move styling (this is what the element will animate towards */
+		&.ng-enter.ng-enter-active { opacity: 1; }
+
+		/* starting leave animation */
+		&.ng-leave { opacity: 1; }
+
+		/* ending leave animation */
+		&.ng-leave.ng-leave-active {
+			opacity: 0; 
+			max-height: 0;
+		}
+
+
+		> div {
+			background: #fff;
+			min-height: 40px;
+			overflow: hidden;
+			overflow: auto;
+			position: relative;
+			box-sizing: border-box;
+			display: table;
+
+			> * {
+				display: table-cell;
+				vertical-align: top;
+
+				&.tile, &.close {
+					text-align: center;
+					min-width: 40px;
+					height: 100%;
+					color: #fff;
+
+					> i {
+						@include transition(.35s);
+						@extend .ic-;
+						font-size: 16px;
+						line-height: 40px !important;
+					}
+
+				}
+
+				&.close {
+
+					> i {
+						@extend .ic-close;
+						cursor: pointer;
+						font-size: 12px;
+						line-height: 40px !important;
+						color: $header-alt;
+
+						&:hover {
+							color: $header-bg;
+						}
+					}
+				}
+
+				> .message {
+					line-height: 20px;
+					margin: 10px;
+				}
+
+				&:nth-child(2) {
+					width: 100%;
+				}
+			}
+		}
+
+		/*
+			Differences between notification styles
+		*/
+		&.success {
+			> div {
+				color: $green;
+
+				.tile {
+					background: $green;
+
+					> i {
+						@extend .ic-tick;
+					}
+				}
+			}
+		}
+
+		&.warning {
+			> div {
+				color: $yellow;
+				.tile {
+					background: $yellow;
+
+					> i {
+						@extend .ic-warning;
+					}
+				}
+			}
+		}
+
+		&.alert {
+			> div {
+				color: $red;
+				.tile {
+					background: $red;
+					
+					> i {
+						@extend .ic-blocked;
+					}
+				}
+			}
+		}
+
+		&.information {
+			> div {
+				color: $blue;
+				.tile {
+					background: $blue;
+
+					> i {
+						@extend .ic-info;
+					}
+				}
+			}
+		}
+
+	}
+
+}
+
+@media all and (max-width: 400px) {
+	#oa-notifications {
+		width: auto !important;
+		left: 5px;
+		right: 5px;
+		margin: auto !important;
+	}
+}

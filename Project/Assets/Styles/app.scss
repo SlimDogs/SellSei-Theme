@@ -1,0 +1,28 @@
+﻿/*
+	Style files improts
+*/
+
+@import "Global/variables";
+@import "Global/mixins";
+
+// Actual styles
+@import "Global/global";
+@import "Global/animations";
+@import "Directives/inputBox";
+
+// Login layout
+@import "Pages/login";
+
+// App
+@import "Global/layout";
+@import "Global/header";
+@import "Global/right sidebar";
+@import "Global/search";
+@import "Global/lock screen";
+@import "Global/icons";
+@import "Directives/notifications";
+@import "Directives/dismissable";
+@import "Plugins/select";
+
+// Pages
+@import "Pages/dashboard";

@@ -1,0 +1,15 @@
+﻿<div id="notifications">
+    <div ng-repeat="notify in notifications" class="{{ notify.type }}" ng-animate>
+        <div>
+            <div class="tile">
+                <i></i>
+            </div>
+            <div>
+                <div class="message">{{ notify.message }}</div>
+            </div>
+            <div class="close">
+                <i ng-click="funct.close($index)"></i>
+            </div>
+        </div>
+    </div>
+</div>

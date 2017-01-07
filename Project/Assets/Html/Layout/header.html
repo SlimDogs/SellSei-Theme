@@ -1,0 +1,52 @@
+<div id="app-header">
+	<div>
+		<div>
+			<div class="logo">
+				<strong>Sell</strong>Sei <span>v@@version</span>
+			</div>
+		</div>
+
+		<div class="wide">
+			<div class="search-holder">
+				<span ng-click="lockToggle()">
+					<i class="ic-lock"></i>
+				</span>
+				<span ng-click="fullscreenToggle()">
+					<i class="ic-expand"></i>
+				</span>
+				<span class="separator"></span>
+				<span ng-click="dismissTabs.toggle('notify')">
+					<i class="ic-notifications"></i>
+				</span>
+				<span ng-click="dismissTabs.toggle('info')">
+					<i class="ic-globe"></i>
+				</span>
+				<span class="searcher" ng-click="searchToggle.toggle()">
+					<i class="ic-search"></i> Start typing to search...
+				</span>
+			</div>
+		</div>
+
+		<div>
+			<div class="user">
+				<div class="user-background">
+					<div>
+						<div class="name wide">
+							<div>Tautvydas Derzinskas</div>
+						</div>
+						<div class="menu">
+							<div>
+								<i class="ic-cog"></i>
+								<i class="ic-more-vert" ng-click="toggleSidebar('right')"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="avatar">
+					<img src="@@imgDir/avatar.png" height="100%" width="100%" alt="" />
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

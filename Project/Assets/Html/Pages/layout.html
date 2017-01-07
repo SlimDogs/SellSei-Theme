@@ -1,0 +1,332 @@
+<div ng-class="{ 'sidebar-right': rightSidebar, 'collapsed': !leftSidebar, 'un-dismiss': dismissSidebar }">
+
+	<!-- Header -->
+	<div id="app-header">
+	<div>
+		<div>
+			<div class="logo">
+				<strong>Sell</strong>Sei <span>v0.0.3</span>
+			</div>
+		</div>
+
+		<div class="wide">
+			<div class="search-holder">
+				<span ng-click="lockToggle()">
+					<i class="ic-lock"></i>
+				</span>
+				<span ng-click="fullscreenToggle()">
+					<i class="ic-expand"></i>
+				</span>
+				<span class="separator"></span>
+				<span ng-click="dismissTabs.toggle('notify')">
+					<i class="ic-notifications"></i>
+				</span>
+				<span ng-click="dismissTabs.toggle('info')">
+					<i class="ic-globe"></i>
+				</span>
+				<span class="searcher" ng-click="searchToggle.toggle()">
+					<i class="ic-search"></i> Start typing to search...
+				</span>
+			</div>
+		</div>
+
+		<div>
+			<div class="user">
+				<div class="user-background">
+					<div>
+						<div class="name wide">
+							<div>Tautvydas Derzinskas</div>
+						</div>
+						<div class="menu">
+							<div>
+								<i class="ic-cog"></i>
+								<i class="ic-more-vert" ng-click="toggleSidebar('right')"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="avatar">
+					<img src="Assets/Images/avatar.png" height="100%" width="100%" alt="" />
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+	<!-- Left side sidebar -->
+	<div id="app-sidebar-left">
+	<div>
+		<i class="ic-menu" ng-click="toggleSidebar('left')"></i>
+	</div>
+	<ul class="navigation">
+		<li>
+			<a ui-sref="app.dashboard">
+				<i class="ic-home"></i>
+				<span>Dashboard</span>
+			</a>
+		</li>
+		<li>
+			<a ui-sref="app.404">
+				<i class="ic-enter"></i>
+				<span>Orders</span>
+			</a>
+		</li>
+		<li>
+			<a ui-sref="app.404">
+				<i class="ic-apps"></i>
+				<span>Inventory</span>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	<!-- Right side sidebar -->
+	<div id="app-sidebar-right">
+	<ul>
+		<li>Contacts</li>
+		<li class="active">To do list</li>
+	</ul>
+
+	<div class="todo active">
+		
+		<ul class="subtabs">
+			<li class="active">All</li>
+			<li>Incomplete</li>
+			<li>Complete</li>
+		</ul>
+	</div>
+
+	<div></div>
+</div>
+
+	<!-- Content block -->
+	<div id="content">
+		<!-- Breadcrumbs -->
+		<breadcrumbs></breadcrumbs>
+
+		<!-- Dismissable -->
+		<div id="dismissable-panel">
+    <div class="content">
+        <div>
+            <div class="wide">
+                <div ng-show="dismissTabs.active == 'info'">
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                </div>
+                <div ng-show="dismissTabs.active == 'notify'">
+                    Notifications
+                </div>
+            </div>
+            <div>
+                <ul>
+                    <li ng-class="{ 'active': dismissTabs.active == 'info' }" ng-click="dismissTabs.toggle('info')">
+                        <i class="ic-globe"></i>
+                    </li>
+                    <li ng-class="{ 'active': dismissTabs.active == 'notify' }" ng-click="dismissTabs.toggle('notify')">
+                        <i class="ic-notifications"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="slider">
+        <div ng-click="toggleSidebar('dismiss')">
+            <i class="ic-keyboard-control"></i>
+            <div>
+                <div class="bounce3"></div>
+                <div class="bounce2"></div>
+                <div class="bounce1"></div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+		<div id="view-port">
+			<div id="port" ui-view></div>
+		</div>
+
+		<div id="scroll-shadow">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+
+		<div id="scroll-top" ng-click="scrollTop()">
+			<i class="ic-arrow-up"></i>
+		</div>
+
+	</div>
+
+	<!-- Search screen -->
+	<div id="search-window">
+
+	<div class="title">
+		<div>
+			<div class="wide">
+				<div><strong>Sell</strong>Sei <span>v0.0.3</span></div>
+			</div>
+			<div>
+				<span title="Close" ng-click="searchToggle.toggle()">
+					<i class="ic-close"></i>
+				</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="input-container">
+		<input type="text" value="" placeholder="Search..." id="search-input" />
+	</div>
+	
+</div>
+
+	<!-- Lock screen -->
+	<div ng-class="{ 'active': lockedOut }" id="lock-screen">
+	<div>
+		<h1><strong>Sell</strong>Sei v0.0.3</h1>
+
+		<div>
+			<div>
+				<div>
+					<img src="Assets/Images/avatar-big.png" alt="" />
+				</div>
+				<div class="wide">
+					<div>
+						<h2>Tautvydas Derzinskas</h2>
+						<h3>Please enter your password to unlock</h3>
+						<div>
+							<div>
+								<div class="wide"><input type="password" value="" placeholder="Password" /></div>
+								<div>
+									<span ng-click="lockToggle()">
+										<i class="ic-tick"></i>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+	<!-- Notifications directive -->
+	<notifications></notifications>
+
+	<!-- Templates for directives used only in actual app -->
+	<script type="text/ng-template" id="Notifications.html">
+	<div id="notifications">
+    <div ng-repeat="notify in notifications" class="{{ notify.type }}" ng-animate>
+        <div>
+            <div class="tile">
+                <i></i>
+            </div>
+            <div>
+                <div class="message">{{ notify.message }}</div>
+            </div>
+            <div class="close">
+                <i ng-click="funct.close($index)"></i>
+            </div>
+        </div>
+    </div>
+</div>
+	</script>
+	<script type="text/ng-template" id="Breadcrumbs.html">
+	<div id="breadcrumbs">
+    <ul>
+        <li>
+            <a ui-sref="app.dashboard">
+                <i class="ic-home2"></i>
+            </a>
+        </li>
+        <li ng-repeat="crumb in breadcrumbs">
+            <a ui-sref="{{ crumb.route }}" ng-if="!$last">{{ crumb.displayName }}</a><span ng-show="$last">{{ crumb.displayName }}</span>
+        </li>
+    </ul>
+</div>
+	</script>
+
+	<!-- Global pages -->
+	<script type="text/ng-template" id="404.html">
+	<strong>404 page</strong>
+	</script>
+
+	<!-- Temp (dev) pages template chathe -->
+	<script type="text/ng-template" id="dashboard.html">
+	<div id="dashboard">
+
+	<div class="size-100 dash-card">
+		<div></div>
+	</div>
+
+	<div class="size-50 dash-card">
+		<div></div>
+	</div>
+
+	<div class="size-25 dash-card">
+		<div></div>
+	</div>
+
+	<div closs="size-75 dash-card">
+		<div></div>
+	</div>
+
+	<div class="size-25 dash-card">
+		<div></div>
+	</div>
+
+	<div class="size-25 dash-card">
+		<div></div>
+	</div>
+
+	<div class="size-50 dash-card">
+		<div></div>
+	</div>
+
+	<div class="size-25 dash-card">
+		<div></div>
+	</div>
+
+	<div class="size-100 dash-card">
+		<div></div>
+	</div>
+
+	<div class="size-50 dash-card">
+		<div></div>
+	</div>
+
+	<div class="size-25 dash-card">
+		<div></div>
+	</div>
+
+	<div closs="size-75 dash-card">
+		<div></div>
+	</div>
+
+	<div class="size-25 dash-card">
+		<div></div>
+	</div>
+
+	<div class="size-25 dash-card">
+		<div></div>
+	</div>
+
+	<div class="size-50 dash-card">
+		<div></div>
+	</div>
+
+	<div class="size-25 dash-card">
+		<div></div>
+	</div>
+
+</div>
+	</script>
+
+</div>

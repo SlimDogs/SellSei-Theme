@@ -1,0 +1,56 @@
+﻿/*
+	SellSei theme variables
+*/
+
+// Colors
+$body-background: #FFFFFF;
+
+$green: #38A857;
+$green-alt: lighten($green,10%);
+
+$blue: #389BA8;
+$blue-alt: lighten($blue,10%);
+
+$red: #A83838;
+$red-alt: lighten($red,10%);
+
+$yellow: #A8A238;
+$yellow-alt: lighten($yellow,10%);
+
+// Theme color
+$header-bg: #1c2b36;
+
+// Login layout
+$slogan-color: lighten($header-bg, 50%);
+
+// Header
+$header-secondary: lighten($header-bg, 20%);
+$header-alt: lighten($header-bg, 30%);
+$header-shadow: #515151;
+
+// Breadcrumbs
+$breadcrumbs-bg: lighten($header-bg, 80%);
+
+// Right sidebar
+$sidebar-right-bg: #f5f5f5;
+$sidebar-right-border: darken($sidebar-right-bg, 10%);
+
+// Left sidebar
+$sidebar-left-bg: darken($header-bg, 10%);
+$sidebar-exp: 280px;
+$sidebar-col: 60px;
+
+// Dismissable panel
+$dismissable: lighten($header-bg, 75%);
+$slider-bg: #FAFAFA;
+
+// Lock screen
+$h3-color: lighten($header-bg, 50%);
+
+// Search window
+$search-bg: darken($header-bg, 20%);
+
+
+
+// Sizes
+$default-padding: 20px;

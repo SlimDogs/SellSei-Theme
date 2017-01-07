@@ -1,0 +1,89 @@
+﻿/*
+	Login page
+*/
+
+#login-container {
+	position: relative;
+	background-color: $header-bg;
+	//background-image: url('../../Images/login-bg-0.jpg');
+	background-position: center center;
+
+	> .bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+
+		opacity: 0.5;
+		overflow: hidden;
+
+		> img {
+			height: 100%;
+			//width: 100%;
+		}
+	}
+
+	> .inspiration {
+		position: absolute;
+		left: 20px;
+		bottom: 20px;
+		width: 350px;
+
+		color: #FFF;
+		text-shadow: 1px 1px 1px #000;
+		font-size: 25px;
+		font-weight: bold;
+
+		> .slogan {
+			margin-top: 5px;
+			font-size: 16px;
+			font-weight: lighter;
+			opacity: 0.8;
+		}
+	}
+
+	> .white-wrap {
+		background-color: #FFF;
+
+		position: absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		width: 450px;
+
+		padding: 50px;
+
+		> h1 {
+			margin: 25px 0;
+			font-size: 25px;
+			color: $slogan-color;
+			text-transform: uppercase;
+		}
+
+		> h2 {
+			font-size: 13px;
+		}
+
+		> .input-group {
+			margin-top: 20px;
+		}
+
+		> .remember {
+			margin-top: 20px;
+			overflow: hidden;
+
+			> button {
+				float: left;
+			}
+
+			> .toggler-group {
+				height: 35px;
+				line-height: 35px;
+				float: right;
+
+				> div {
+					margin-left: 10px;
+				}
+			}
+		}
+	}
+}

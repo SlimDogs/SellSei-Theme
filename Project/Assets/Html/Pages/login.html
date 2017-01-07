@@ -1,0 +1,32 @@
+<div id="login-container">
+
+	<div class="bg">
+		<img src="Assets/Images/login-bg-0.jpg" alt="" />		
+	</div>
+
+	<div class="inspiration">
+		<div>There are so many ways to spend your time...</div>
+		<div class="slogan">We work hard to save your time</div>
+	</div>
+
+	<div class="white-wrap">
+		<h1><strong>Sell</strong>Sei</h1>
+
+		<h2>Sign into your account</h2>
+		<input-box ui-input="uiInputs.username"></input-box>
+
+		<input-box ui-input="uiInputs.password"></input-box>
+
+		<div class="remember">
+			<button class="default" ng-click="login()">Sign in</button>
+
+			<div class="toggler-group" ng-click="remember.toggle()">
+				<label>Remember me next time</label>
+				<div ng-class="{ 'false': !remember.state, 'true': remember.state }" class="form-toggler">
+					<small></small>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>

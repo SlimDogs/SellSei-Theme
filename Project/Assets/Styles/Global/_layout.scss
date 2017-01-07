@@ -1,0 +1,234 @@
+﻿#app-sidebar-left {
+	position: fixed;
+	top: 60px;
+	left: 0px;
+	width: $sidebar-exp;
+	background-color: $sidebar-left-bg;
+	color: #fff;
+	height: 100%;
+
+	.collapsed & {
+		width: $sidebar-col;
+
+		> .navigation span {
+			display: none;
+		}
+
+		> div {
+			text-align: center;
+			 > i {
+
+			}
+		}
+	}
+
+	> div {
+		height: 30px;
+		text-align: right;
+		padding: 0 15px;
+
+		> i {
+			cursor: pointer;
+			color: $header-bg;
+
+			@include vendorize(animation-duration, .7s);
+
+			&:hover {
+				color: $header-secondary;
+				@include vendorize(animation-name, swing);
+			}
+		}
+	}
+
+	> .navigation {
+		> li {
+			height: 50px;
+			margin: 5px 5px 0 5px;
+			background-color: $header-bg;
+
+			@include vendorize(border-radius,5px);
+			@include transition(.15s);
+
+			&:hover {
+				background-color: $header-secondary;
+
+				> a {
+					> i {
+						@include vendorize(animation-name, swing);
+					}
+				}
+			}
+
+			> a {
+				display: block;
+				height: 100%;
+				padding: 15px;
+				line-height: 20px;
+
+				> span {
+					margin-left: 15px;
+				}
+
+				> i {
+				    @include vendorize(animation-duration, .7s);
+				}
+			}
+		}
+	}
+}
+
+#content {
+	height: 100%;
+	width: 100%;
+	padding: 60px 0 0 $sidebar-exp;
+
+	.collapsed & {
+		padding-left: $sidebar-col;
+	}
+}
+
+#breadcrumbs {
+	background-color: $breadcrumbs-bg;
+	height: 30px;
+
+	padding: 7px 10px;
+	line-height: 16px;
+
+	> ul > li {
+		float: left;
+
+		&:first-child {
+			&:before {
+				content: none;
+			}
+		}
+
+		&:before {
+			content: "";
+			font-family: 'SellSei';
+			@extend .ic-keyboard-arrow-right;
+			color: $sidebar-right-border;
+			margin: 0 5px;
+		}
+	}
+
+	i {
+		&.ic-home2 {
+			@include vendorize(animation-duration, .7s);
+			&:hover {
+				@include vendorize(animation-name, swing);
+			}
+		}
+		display: inline-block;
+		vertical-align: top;
+	}
+}
+
+#view-port {
+	position: absolute;
+	top: 110px;
+	bottom: 0px;
+	left: $sidebar-exp;
+	right: 0px;
+	z-index: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+
+	.collapsed & {
+		left: $sidebar-col;
+	}
+
+	.un-dismiss & {
+		top: 260px;
+	}
+
+	#port {
+		min-height: 100%;
+		padding: 10px 0 10px 10px;
+		overflow: hidden;
+	}
+}
+
+#scroll-shadow {
+	position: absolute;
+	top: 110px;
+	left: $sidebar-exp;
+	right: 0px;
+	height: 36px;
+	overflow: hidden;
+	z-index: 99;
+	opacity: 0;
+	pointer-events: none;
+
+	.un-dismiss & {
+		top: 260px;
+	}
+
+	.collapsed & {
+		left: $sidebar-col;
+	}
+
+	> div {
+		position: absolute;
+		top: 0px;
+		bottom: 0px;
+
+		&:nth-child(1) {
+			left: 0px;
+			width: 46px;
+			background: transparent url("../../Images/Shadow/top-start.png") no-repeat;
+		}
+
+		&:nth-child(2) {
+			left: 46px;
+			right: 46px;
+			background: transparent url("../../Images/Shadow/top.png") repeat-x;
+		}
+
+		&:nth-child(3) {
+			right: 0px;
+			width: 46px;
+			background: transparent url("../../Images/Shadow/top-end.png") no-repeat;
+		}
+	}
+}
+
+#scroll-top {
+	position: absolute;
+	bottom: 35px;
+	right: 35px;
+
+	background-color: $header-bg;
+	height: 50px;
+	width: 50px;
+	cursor: pointer;
+
+	@include vendorize(border-radius,5px);
+	@include transition(.15s);
+
+	color: white;
+	text-align: center;
+	line-height: 50px;
+	font-size: 16px;
+
+	visibility: hidden;
+	opacity: 0;
+
+	&.active {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	&:hover {
+		background-color: $header-secondary;
+	}
+
+	.sidebar-right & {
+		right: auto;
+		left: ($sidebar-exp+35px);
+	}
+
+	.sidebar-right.collapsed & {
+		left: ($sidebar-col+35px);
+	}
+}

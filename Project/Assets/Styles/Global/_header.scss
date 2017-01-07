@@ -1,0 +1,172 @@
+﻿/*
+	Page header
+*/
+#app-header {
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	height: 60px;
+
+	color: $sidebar-right-bg;
+	background: $header-bg;
+
+	> div {
+		display: table;
+		height: 100%;
+
+		> * {
+			display: table-cell;
+			vertical-align: top;
+
+			> .search-holder {
+				height: 100%;
+				width: 100%;
+				line-height: 20px;
+				padding: $default-padding;
+				overflow: hidden;
+
+				@extend %ellipsis;
+
+				> span {
+					margin: 0 5px;
+					cursor: pointer;
+					float: right;
+					display: inline-block;
+					vertical-align: middle;
+
+					> i {
+						color: $breadcrumbs-bg;
+						font-size: 14px;
+						@include transition(.15s);
+						@include vendorize(animation-duration, .7s);
+					}
+
+					&:hover {
+						> i {
+							color: $dismissable;
+							@include vendorize(animation-name, swing);
+						}
+					}
+
+					&.separator {
+						cursor: default;
+						height: 20px;
+						width: 1px;
+						background-color: $sidebar-left-bg;
+					}
+
+					&.searcher {
+						float: left;
+
+						i {
+							color: $sidebar-right-border;
+						}
+
+					}
+				}
+			}
+
+			> .logo {
+				width: $sidebar-exp;
+				height: 60px;
+				text-align: center;
+				line-height: 60px;
+				background: $sidebar-left-bg;
+				overflow: hidden;
+
+				> span {
+					font-size: 8px;
+					color: $sidebar-right-border;
+				}
+
+				.collapsed & {
+					width: $sidebar-col;
+
+					> span {
+						display: none;
+					}
+				}
+			}
+
+			> .user {
+				width: $sidebar-exp;
+				height: 100%;
+				position: relative;
+
+				> .user-background {
+					background: $header-secondary;
+					position: absolute;
+					top: 15px;
+					bottom: 15px;
+					right: 0px;
+					left: 10px;
+
+					padding-left: 35px;
+
+					> div {
+						display: table;
+						height: 100%;
+
+						> * {
+							display: table-cell;
+							vertical-align: top;
+
+							&.name {
+								> div {
+									height: 30px;
+									padding: 5px 0;
+									line-height: 20px;
+
+									text-shadow: 1px 1px 1px $header-shadow;
+									text-align: center;
+									@extend %ellipsis;
+								}
+							}
+
+							&.menu {
+								> div {
+									height: 100%;
+									width: 60px;
+
+									> i {
+										display: inline-block;
+										height: 25px;
+										line-height: 25px;
+										text-align: center;
+										width: 25px;
+										background-color: $header-alt;
+										margin: 2.5px 2px 2.5px 0;
+										cursor: pointer;
+										text-shadow: 1px 1px 1px $header-shadow;
+
+										@include transition(.15s);
+										@include vendorize(border-radius,360px);
+										@include vendorize(box-shadow,0px 1px 0px 1px $header-shadow);
+
+										.sidebar-right &.ic-more-vert {
+											background-color: $sidebar-right-border;
+											color: $header-alt;
+										}
+									}
+								}
+							}
+						}
+					}
+
+				}
+
+				> .avatar {
+					position: absolute;
+					left: 0px;
+					top: 5px;
+					height: 50px;
+					width: 50px;
+					border: 5px solid $header-secondary;
+					display: inline-block;
+					overflow: hidden;
+					@include vendorize(border-radius,360px);
+				}
+			}
+		}
+	}
+}

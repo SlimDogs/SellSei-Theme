@@ -1,0 +1,96 @@
+﻿#app-sidebar-right {
+    position: fixed;
+    top: 60px;
+    bottom: 0px;
+    width: $sidebar-exp;
+    z-index: 99997;
+
+    background-color: $sidebar-right-bg;
+    border-left: 1px solid $sidebar-right-border;
+
+    right: -$sidebar-exp;
+    visibility: hidden;
+
+    @include vendorize(box-shadow, -1px 1px 20px rgba(0, 0, 0, 0.14));
+    @include transition(.15s);
+
+    .sidebar-right & {
+        right: 0px;
+        visibility: visible;
+    }
+
+    > ul {
+        height: 30px;
+        overflow: hidden;
+
+        > li {
+            float: left;
+            width: 50%;
+            height: 30px;
+            line-height: 30px;
+            font-size: 11px;
+            text-align: center;
+            cursor: pointer;
+            text-transform: uppercase;
+            background-color: $header-alt;
+            color: $dismissable;
+
+            @include transition(.15s);
+
+            &:hover {
+                background-color: $header-secondary;
+            }
+
+            &.active {
+                color: $header-bg;
+                font-weight: bold;
+                background-color: $sidebar-right-bg !important;
+                cursor: default;
+            }
+        }
+    }
+
+    > div {
+        position: absolute;
+        top: 30px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        padding: 15px;
+        display: none;
+
+        &.active {
+            display: block;
+        }
+
+        &.todo {
+
+            > ul.subtabs {
+                position: absolute;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+                height: 30px;
+                color: $header-alt;
+                background-color: #fff;
+
+                > li {
+                    float: left;
+                    width: 33.33%;
+                    height: 30px;
+                    line-height: 30px;
+                    text-align: center;
+                    text-transform: uppercase;
+                    font-size: 11px;
+                    cursor: pointer;
+
+                    &.active {
+                        color: $sidebar-left-bg;
+                        font-weight: bold;
+                        cursor: default;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,60 @@
+﻿// Swing
+@-webkit-keyframes swing {
+    20% {
+    	@include vendorize(transform, rotate3d(0,0,1,15deg));
+    }
+    40% {
+    	@include vendorize(transform, rotate3d(0,0,1,-10deg));
+    }
+    60% {
+    	@include vendorize(transform, rotate3d(0,0,1,5deg));
+    }
+    80% {
+    	@include vendorize(transform, rotate3d(0,0,1,-5deg));
+    }
+    100% {
+    	@include vendorize(transform, rotate3d(0,0,1,0deg));
+    }
+}
+
+@keyframes swing {
+    20% {
+    	@include vendorize(transform, rotate3d(0,0,1,15deg));
+    }
+    40% {
+    	@include vendorize(transform, rotate3d(0,0,1,-10deg));
+    }
+    60% {
+    	@include vendorize(transform, rotate3d(0,0,1,5deg));
+    }
+    80% {
+    	@include vendorize(transform, rotate3d(0,0,1,-5deg));
+    }
+    100% {
+    	@include vendorize(transform, rotate3d(0,0,1,0deg));
+    }
+}
+
+.swing {
+    @include vendorize(transform-origin, top center);
+    @include vendorize(animation-name, swing);
+}
+
+// Bubling
+@-webkit-keyframes bouncedelay { 
+    0%,80%,100% {
+        @include vendorize(transform, scale(0.0));
+    }
+    40% {
+        @include vendorize(transform, scale(1.0));
+    }
+}
+
+@keyframes bouncedelay {
+    0%,80%,100% { 
+        @include vendorize(transform, scale(0.0));
+    }
+    40% { 
+        @include vendorize(transform, scale(1.0));
+    }
+}

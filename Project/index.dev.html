@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="rootCtrl">
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+		<meta charset="utf-8"/>
+		<meta name="theme-color" content="#1c2b36">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title ng-bind="$root.pageTitle"></title>
+
+		<!-- Theme CSS -->
+		<link rel="stylesheet" href="Project/Assets/Styles/Production/theme.css" />
+
+		<!-- JS Libraries -->
+		<script src="Project/Assets/Scripts/Libraries/jquery-2.1.1.min.js"></script>
+		<script src="Project/Assets/Scripts/Libraries/angular.min.js"></script>
+		<script src="Project/Assets/Scripts/Libraries/angular-ui-router.min.js"></script>
+		<script src="Project/Assets/Scripts/Libraries/angular-animate.min.js"></script>
+		<script src="Project/Assets/Scripts/Libraries/packery.pkgd.min.js"></script>
+		<script src="Project/Assets/Scripts/Libraries/underscore.min.js"></script>
+	</head>
+	<body>
+
+		<div ui-view></div>
+
+		<!-- App scripts -->
+		<script src="Project/Assets/Scripts/Global/app.min.js"></script>
+
+		<!-- Directives used globally -->
+		<script type="text/ng-template" id="InputBox.html">
+		@@include('Project/Assets/Html/Directives/inputBox.html')
+		</script>
+
+	</body>
+</html>

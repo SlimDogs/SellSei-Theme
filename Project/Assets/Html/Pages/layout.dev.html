@@ -1,0 +1,63 @@
+<div ng-class="{ 'sidebar-right': rightSidebar, 'collapsed': !leftSidebar, 'un-dismiss': dismissSidebar }">
+
+	<!-- Header -->
+	@@include('../Layout/header.html')
+
+	<!-- Left side sidebar -->
+	@@include('../Layout/sidebar - left.html')
+
+	<!-- Right side sidebar -->
+	@@include('../Layout/sidebar - right.html')
+
+	<!-- Content block -->
+	<div id="content">
+		<!-- Breadcrumbs -->
+		<breadcrumbs></breadcrumbs>
+
+		<!-- Dismissable -->
+		@@include('../Directives/dismissable.html')
+
+		<div id="view-port">
+			<div id="port" ui-view></div>
+		</div>
+
+		<div id="scroll-shadow">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+
+		<div id="scroll-top" ng-click="scrollTop()">
+			<i class="ic-arrow-up"></i>
+		</div>
+
+	</div>
+
+	<!-- Search screen -->
+	@@include('../Layout/search.html')
+
+	<!-- Lock screen -->
+	@@include('../Layout/lock screen.html')
+
+	<!-- Notifications directive -->
+	<notifications></notifications>
+
+	<!-- Templates for directives used only in actual app -->
+	<script type="text/ng-template" id="Notifications.html">
+	@@include('../Directives/notifications.html')
+	</script>
+	<script type="text/ng-template" id="Breadcrumbs.html">
+	@@include('../Directives/breadcrumbs.html')
+	</script>
+
+	<!-- Global pages -->
+	<script type="text/ng-template" id="404.html">
+	@@include('../Pages/404.html')
+	</script>
+
+	<!-- Temp (dev) pages template chathe -->
+	<script type="text/ng-template" id="dashboard.html">
+	@@include('../Pages/dashboard.html')
+	</script>
+
+</div>

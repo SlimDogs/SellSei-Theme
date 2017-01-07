@@ -1,0 +1,87 @@
+﻿/*
+	Search window
+*/
+
+#search-window {
+	position: absolute;
+	top: 20px;
+	bottom: 20px;
+	left: 20px;
+	right: 20px;
+	background-color: rgba($sidebar-left-bg,0.95);
+	padding: 20px;
+
+	z-index: 99998;
+
+	opacity: 0;
+	visibility: hidden;
+
+	@include vendorize(border-radius, 5px);
+
+	&.active, &.show {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	> .title {
+		height: 30px;
+		overflow: hidden;
+
+		> div {
+			display: table;
+			height: 100%;
+
+			> * {
+				display: table-cell;
+				vertical-align: top;
+
+				> div {
+					font-size: 25px;
+					font-weight: lighter;
+					color: $dismissable;
+
+					> span {
+						font-size: 12px;
+						color: $h3-color;
+					}
+				}
+
+				> span {
+					display: inline-block;
+					height: 30px;
+					width: 30px;
+					font-size: 30px;
+					line-height: 30px;
+					text-align: center;
+					cursor: pointer;
+					color: $dismissable;
+
+					@include transition(.15s);
+
+					&:hover {
+						color: #FFF;
+					}
+
+				}
+			}
+		}
+	}
+
+	> .input-container {
+		height: 100px;
+		overflow: hidden;
+
+		> input {
+			height: 100px;
+			width: 100%;
+			background-color: transparent;
+			line-height: 100px;
+			font-size: 77px;
+			letter-spacing: -1.925px;
+			border: none !important;
+			outline: none !important;
+
+			color: $h3-color;
+		}
+	}
+}

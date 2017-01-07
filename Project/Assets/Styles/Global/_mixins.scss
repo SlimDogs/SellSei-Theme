@@ -1,0 +1,47 @@
+// Vendorize function
+$vendors: 'webkit', 'moz', 'ms'; // 'webkit', 'moz', 'ms', 'o', 'khtml';
+@mixin vendorize($property, $value, $noplain: false, $vendors: $vendors, $prefix:'') {
+	@each $vendor in $vendors {
+		#{$prefix}-#{$vendor}-#{$property}: $value;
+	}
+	@if $noplain != true {
+		#{$property}: $value;
+	}
+}
+
+// Default transition animation
+@mixin transition($time) {
+	@include vendorize(transition, all $time ease-in-out);
+}
+
+// Text ellipsis
+%ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+// No select
+%no-select {
+	@include vendorize(user-select, none);
+}
+
+// Media queries
+$S:     320px;   
+$M:     768px;     
+$L:     1024px;
+$XL:	1600px;
+@mixin device($canvas) {
+	@if $canvas == phone {
+		@media (max-width: $S) { @content; } 
+	}
+	@else if $canvas == tablet {
+		@media (min-width: $S) and (max-width: $M) { @content; } 
+	}
+	@else if $canvas == laptop {
+		@media (min-width: $M) and (max-width: $L) { @content; } 
+	}
+	@else if $canvas == macbook {
+		@media (min-width: $XL) { @content; } 
+	}
+}

@@ -1,0 +1,12 @@
+﻿<div id="breadcrumbs">
+    <ul>
+        <li>
+            <a ui-sref="app.dashboard">
+                <i class="ic-home2"></i>
+            </a>
+        </li>
+        <li ng-repeat="crumb in breadcrumbs">
+            <a ui-sref="{{ crumb.route }}" ng-if="!$last">{{ crumb.displayName }}</a><span ng-show="$last">{{ crumb.displayName }}</span>
+        </li>
+    </ul>
+</div>

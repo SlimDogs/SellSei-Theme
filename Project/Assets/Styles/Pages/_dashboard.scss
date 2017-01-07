@@ -1,0 +1,54 @@
+﻿#dashboard {
+	> .dash-card {
+		height: 180px;
+		max-height: 300px;
+		padding: 0 10px 10px 0;
+
+		// Sizes of cards
+		&.size-100 {
+			width: 100%;
+
+			@include device(macbook) {
+				width: 50%;
+			}
+
+		}
+
+		&.size-75 {
+			width: 75%;
+
+			@include device(tablet) {
+				width: 100%;
+			}
+		}
+
+		&.size-50 {
+			width: 50%;
+
+			@include device(tablet) {
+				width: 100%;
+			}
+		}
+
+		&.size-25 {
+			width: 25%;
+
+			.collapsed & {
+				@include device(tablet) {
+					width: 50%;
+				}
+			}
+
+			@include device(phone) {
+				width: 100%;
+			}
+		}
+
+
+		> div {
+			height: 100%;
+			background-color: #f5f5f5;
+			@include vendorize(box-shadow, 1px 1px 1px rgba(0, 0, 0, 0.15));
+		}
+	}
+}

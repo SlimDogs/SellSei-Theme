@@ -1,0 +1,178 @@
+﻿#dismissable-panel {
+
+	> .content {
+		height: 0px;
+		background-color: $dismissable;
+		overflow: hidden;
+
+		.un-dismiss & {
+			height: 150px;
+		}
+
+		> div {
+			display: table;
+			height: 100%;
+
+			> * {
+				display: table-cell;
+				vertical-align: top;
+
+				> * {
+					height: 100%;
+					position: relative;
+				}
+
+				> div {
+					overflow-x: hidden;
+					overflow-y: auto;
+
+					> .item {
+						height: 28px;
+						margin: 1px 2px;
+						background-color: $h3-color;
+
+						@include vendorize(border-radius,3px);
+
+						&:nth-child(1) {
+							margin-top: 3px;
+						}
+					}
+				}
+
+				> ul {
+					width: 30px;
+
+					> li {
+						display: block;
+						background-color: $header-secondary;
+						text-align: center;
+						height: 72px;
+						line-height: 72px;
+						margin: 2px;
+						color: #FFF;
+						cursor: pointer;
+
+						@include vendorize(border-radius,3px);
+						@include transition(.15s);
+
+						&:hover {
+							background-color: $header-alt;
+						}
+
+						&:nth-child(1) {
+							margin-bottom: 1px;
+						}
+
+						&:nth-child(2) {
+							margin-top: 1px;
+						}
+
+						&.active {
+							background-color: $dismissable !important;
+							cursor: default;
+							color: $header-secondary;
+						}
+					}
+				}
+
+			}
+
+		}
+	}
+
+	> .slider {
+		position: relative;
+		height: 20px;
+		background-color: $slider-bg;
+
+		> div {
+			position: absolute;
+			text-align: center;
+			display: inline-block;
+			color: $header-bg;
+			cursor: pointer;
+
+			height: 16px;
+			line-height: 16px;
+			width: 40px;
+			top: 2px;
+			left: 50%;
+			margin-left: -20px;
+
+			@include vendorize(border-radius, 5px);
+			@include transition(.15s);
+
+			&:hover {
+				background-color: darken($slider-bg, 5%);
+
+				> div {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+
+			> div {
+				height: 60px;
+				width: 10px;
+				position: absolute;
+				left: 50%;
+				margin-left: -5px;
+				bottom: -80px;
+
+				.un-dismiss & {
+					top: -65px;
+					bottom: auto;
+
+					> div {
+						&.bounce3 {
+							top: 40px;
+						}
+
+						&.bounce1 {
+							top: 0px;
+						}
+					}
+				}
+
+				opacity: 0;
+				visibility: hidden;
+
+				@include transition(.15s);
+
+				> div {
+					width: 10px;
+					height: 10px;
+					background-color: $header-alt;
+					display: inline-block;
+					position: absolute;
+					left: 0px;
+					z-index: 999;
+
+					@include vendorize(border-radius,360px);
+					@include vendorize(animation, bouncedelay 1.4s infinite ease-in-out);
+					@include vendorize(animation-fill-mode, both);
+
+					&:hover {
+						display: none;
+					}
+
+					&.bounce3 {
+						top: 0px;
+					}
+
+					&.bounce2 {
+						top: 20px;
+						@include vendorize(animation-delay, 0.16s);
+					}
+
+					&.bounce1 {
+						top: 40px;
+						@include vendorize(animation-delay, 0.32s);
+					}
+
+				}
+			}
+		}
+
+	}
+}
